@@ -1,45 +1,186 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-<meta charset="UTF-8">
-<title>中尾颯吾のホームページ</title>
-<meta name="keywords" content="ページのキーワードA,B,C">
-<meta name="description" content="ページの説明">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="index.css">
-</head>
-<body>
-<div id="outer">
-<header><div id="header-container"><div id="head-inner"><h1>中尾颯吾のホームページ</h1>
-<p class="description">中尾颯吾のホームページです</p></div></div>
-</header>
-<div id="content-wrapper">
-<main>
-<div id="inner">
-<h2>研究紹介</h2>
-<p>超臨界低角運動量ブラックホール降着流の一般相対論的輻射磁気流体力学シミュレーション</p>
-<h2>自己紹介</h2>
-<p>高校：吹奏楽部</p>
-<p>大学：サイクリング部</p>
-<p>鹿児島県立加治木高等学校卒業</p>  
-<h3>記事ページ見出し・中</h3>
-<p>文章あれこれ</p>
-<h4>記事ページ見出し・小</h4>
-<p>文章あれこれ</p>
-</div>
-</main>
-<aside>
-<div id="middle-inner">
-<div class="side-title">menu</div>
-<div class="side">
-<ul>
-<li>記事ページへのリンク</li>
-<li>記事ページへのリンク</li>
-</ul>
-</div>
-</div>
-</aside>
-</div>
-<footer>© 2010 あなたのホームページ</footer>
-</div></body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>中尾颯吾のホームページ</title>
+    <meta name="keywords" content="ページのキーワードA,B,C" />
+    <meta name="description" content="ページの説明" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 1️⃣ ここでは１ファイルで完結させるため内部 CSS を使用しています。
+         外部ファイルに分けたい場合は <link rel="stylesheet" href="index.css" /> に変更してください。-->
+    <style>
+      /* --- リセット & 共通設定 --- */
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto,
+          "Noto Sans JP", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: #fafafa;
+      }
+      a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* --- レイアウト --- */
+      header {
+        background: #0d47a1;
+        color: #fff;
+        padding: 1rem 0;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+      #header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      #head-inner h1 {
+        margin: 0;
+        font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem);
+      }
+      .description {
+        margin: 0.25rem 0 0;
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      #content-wrapper {
+        display: flex;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      /* メインコンテンツ */
+      main {
+        flex: 1 1 60%;
+        background: #fff;
+        border-radius: 8px;
+        padding: 1.5rem 1.75rem;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      }
+      main h2 {
+        margin-top: 0;
+        color: #0d47a1;
+        border-bottom: 2px solid #bbdefb;
+        padding-bottom: 0.25rem;
+      }
+      main h3 {
+        color: #1565c0;
+      }
+      main h4 {
+        color: #1e88e5;
+      }
+
+      /* サイドバー */
+      aside {
+        flex: 0 0 220px;
+      }
+      #middle-inner {
+        background: #fff;
+        border-radius: 8px;
+        padding: 1rem 1.25rem;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      }
+      .side-title {
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: #0d47a1;
+      }
+      .side ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .side li + li {
+        margin-top: 0.5rem;
+      }
+      .side li {
+        padding-left: 0.75rem;
+        position: relative;
+      }
+      .side li::before {
+        content: "\25B6"; /* ▶ アイコン */
+        position: absolute;
+        left: 0;
+        color: #90caf9;
+        font-size: 0.8rem;
+      }
+
+      /* フッター */
+      footer {
+        text-align: center;
+        font-size: 0.85rem;
+        color: #666;
+        padding: 1.5rem 0 2rem;
+      }
+
+      /* --- レスポンシブ --- */
+      @media (max-width: 900px) {
+        #content-wrapper {
+          flex-direction: column;
+        }
+        aside {
+          order: -1; /* メニューを先頭に */
+          flex: 1 1 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="outer">
+      <header>
+        <div id="header-container">
+          <div id="head-inner">
+            <h1>中尾颯吾のホームページ</h1>
+            <p class="description">中尾颯吾のホームページです</p>
+          </div>
+        </div>
+      </header>
+
+      <div id="content-wrapper">
+        <!-- ▼ メインコンテンツ -->
+        <main>
+          <div id="inner">
+            <h2>研究紹介</h2>
+            <p>
+              超臨界低角運動量ブラックホール降着流の一般相対論的輻射磁気流体力学シミュレーション
+            </p>
+            <h2>自己紹介</h2>
+            <p>高校：吹奏楽部</p>
+            <p>大学：サイクリング部</p>
+            <p>鹿児島県立加治木高等学校卒業</p>
+
+            <h3>記事ページ見出し・中</h3>
+            <p>文章あれこれ</p>
+
+            <h4>記事ページ見出し・小</h4>
+            <p>文章あれこれ</p>
+          </div>
+        </main>
+
+        <!-- ▼ サイドバー -->
+        <aside>
+          <div id="middle-inner">
+            <div class="side-title">Menu</div>
+            <div class="side">
+              <ul>
+                <li><a href="#">記事ページへのリンク 1</a></li>
+                <li><a href="#">記事ページへのリンク 2</a></li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <footer>© 2010-2025 中尾颯吾のホームページ</footer>
+    </div>
+  </body>
 </html>
