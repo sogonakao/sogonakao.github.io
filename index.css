@@ -1,168 +1,47 @@
-@charset "UTF-8";
+/* 基本変数（ライトモード） */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --header-bg: #f4f4f4;
+    --accent-color: #004488;
+    --border-color: #dddddd;
+}
+
+/* ダークモード変数 */
+.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --header-bg: #2d2d2d;
+    --accent-color: #4da3ff;
+    --border-color: #444444;
+}
+
 body {
-	margin: 0;
-	padding: 0;
-	font-family: "游ゴシック Medium", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
-	line-height: 1.6;
-    font-size: 16px;
-}
-#header-container {
-  margin: 0 auto;
-  width: 694px;
-}
-header {
-	background-color: #000;
-}
-#head-inner {
-    padding: 25px 0;
-}
-h1 {
-	font-size: 26px;
-	font-weight: bold;
-	padding: 10px 0 0 0;
-	margin: 0;
-	color: #f3e6d2;
-}
-h1 a {
-	font-weight: bold;
-	color: #f3e6d2;
-	text-decoration: none;
-}
-h1 a:hover {
-	color: #e8f3f9;
-	text-decoration: none;
-}
-.description {
-	line-height: 1.2;
-	color: #f3f2eb;
-	margin: 0.5em 0 1em 0;
-}
-h2 {
-	font-size: 22px;
-	margin: 0;
-	padding: 4px 0;
-	border-bottom: 1px solid #999;
-}
-#content-wrapper {margin: 0 auto;
-    width: 694px;}
-main {
-	color: #333;
-}
-#inner {
-	padding: 20px 0 0 0;
-}
-ul {
-	margin: 0 0 0 1em;
-	padding: 0;
-}
-li {
-	list-style: disc;
-}
-p {
-	margin: 1em 0;
-}
-img {
-	max-width: 100%;
-	height: auto;
-	border: 0;
-}
-hr {
-	border-width: 1px 0 0 0;
-	border-style: solid;
-	border-color: #ccc;
-	height: 1px;
-}
-a {
-	font-weight: normal;
-}
-aside {
-
-}
-#middle-inner {
-	padding: 20px 0 20px 0;
-}
-.side-title {
-	padding: 7px 16px 7px 16px;
-	background-color: #f1f1f1;
-	color: #333;
-	font-weight: bold;
-	border: 1px solid #ccc;
-	margin-bottom: 10px;
-	border-radius: 5px;
-}
-.side {
-	margin: 0 0 10px 0;
-	padding: 2px 8px 8px 7px;
-	background-color: #fcfcfc;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-	border-radius: 5px;
-}
-.side ul {
-	margin: 0 0 0 10px;
-	padding: 0;
-}
-.side li {
-	list-style: none;
-	margin-bottom: 0.5em;
-}
-.side li a {
-	text-decoration: none;
-	color: #214555;
-}
-.side li a:hover {
-	text-decoration: underline;
-}
-footer {
-	font-size: 15px;
-	height: 100px;
-	clear: both;
-	text-align: center;
-}
-blockquote {
-	border: 1px solid #ccc;
-	padding: 5px;
-	margin: 10px;
-}
-@media screen and (max-width: 767px) {
-#header-container {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
     margin: 0;
-	width: 100%;
+    transition: 0.3s;
 }
-header {
 
-}
-#head-inner {
-    padding: 25px 10px;
-	background-color: #214555;
-}
-.description {
-}
-#content-wrapper {
-margin: 0;
-	width: 100%;}
-main {
-width: 100%;
-	color: #333;
-}
-#inner {
-	padding: 20px 10px 0 10px;
-}
-aside {
-width: 100%;
-}
-#middle-inner {
-	padding: 10px 10px 20px 10px;
-}
-h1 {
-	font-size: 20px;
-}
-h2 {
-	font-size: 18px;
-}
-h3 {
-	font-size: 16px;
-}
-h4 {
-	font-size: 14px;
-}
+#outer { max-width: 1000px; margin: 0 auto; border: 1px solid var(--border-color); }
+
+/* ナビゲーション */
+#main-nav { background: var(--header-bg); border-bottom: 2px solid var(--accent-color); }
+#main-nav ul { display: flex; list-style: none; padding: 0; margin: 0; }
+#main-nav li a { padding: 15px 20px; text-decoration: none; color: var(--text-color); display: block; }
+#main-nav li a:hover, #main-nav li a.active { background: var(--accent-color); color: white; }
+
+/* プロフィール部分のレイアウト */
+.profile-flex { display: flex; gap: 20px; align-items: flex-start; margin-top: 20px; }
+.profile-img { width: 150px; border-radius: 8px; border: 1px solid var(--border-color); }
+
+/* コンテンツ配置 */
+#content-wrapper { display: flex; }
+main { flex: 3; padding: 20px; }
+aside { flex: 1; padding: 20px; background: var(--header-bg); border-left: 1px solid var(--border-color); }
+
+@media (max-width: 768px) {
+    #content-wrapper { flex-direction: column; }
+    .profile-flex { flex-direction: column; }
 }
