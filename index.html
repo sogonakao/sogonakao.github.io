@@ -1,41 +1,112 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>中尾颯吾のホームページ</title>
-<meta name="keywords" content="ページのキーワードA,B,C">
-<meta name="description" content="ページの説明">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <title>中尾 颯吾 / Sogo Nakao - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
 </head>
-<body>
-<div id="outer">
-<header><div id="header-container"><div id="head-inner"><h1>あなたのＨＰタイトル</h1>
-<p class="description">ページ</p></div></div>
-</header>
-<div id="content-wrapper">
-<main>
-<div id="inner">
-<h2>記事ページ見出し・大</h2>
-<p>文章あれこれ</p>
-<h3>記事ページ見出し・中</h3>
-<p>文章あれこれ</p>
-<h4>記事ページ見出し・小</h4>
-<p>文章あれこれ</p>
+<body class="light-mode"> <div id="outer">
+    <header>
+        <div id="header-container">
+            <div id="head-inner">
+                <h1 class="lang-ja">中尾 颯吾のホームページ</h1>
+                <h1 class="lang-en" style="display:none;">Sogo Nakao's Homepage</h1>
+                
+                <div class="controls">
+                    <button onclick="toggleLanguage()">JP/EN</button>
+                    <button onclick="toggleDarkMode()">🌓 Mode</button>
+                </div>
+            </div>
+        </div>
+        
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="others.html">Others</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="content-wrapper">
+        <main>
+            <div id="inner">
+                <section id="about">
+                    <h2 class="lang-ja">自己紹介</h2>
+                    <h2 class="lang-en" style="display:none;">About Me</h2>
+                    <div class="profile-flex">
+                        <img src="your-photo.jpg" alt="Face Photo" class="profile-img">
+                        <div class="bio">
+                            <p class="lang-ja">ここに研究内容などの自己紹介文を記述します。</p>
+                            <p class="lang-en" style="display:none;">Your introduction and research interests in English go here.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <hr>
+
+                <section id="experience">
+                    <h2 class="lang-ja">研究実績</h2>
+                    <h2 class="lang-en" style="display:none;">Research Experience</h2>
+                    <p class="lang-ja">学会発表や職歴など。</p>
+                    <p class="lang-en" style="display:none;">Details about your conferences and career.</p>
+                </section>
+
+                <hr>
+
+                <section id="publications">
+                    <h2 class="lang-ja">成果</h2>
+                    <h2 class="lang-en" style="display:none;">Publications</h2>
+                    <p class="lang-ja">論文や受賞歴など。</p>
+                    <p class="lang-en" style="display:none;">Journal papers and awards.</p>
+                </section>
+
+                <hr>
+
+                <section id="contact-home">
+                    <h2 class="lang-ja">連絡先</h2>
+                    <h2 class="lang-en" style="display:none;">Contact</h2>
+                    <p>Email: sogo.nakao [at] example.com</p>
+                </section>
+            </div>
+        </main>
+
+        <aside>
+            <div id="middle-inner">
+                <div class="side-title">Links</div>
+                <div class="side">
+                    <ul>
+                        <li><a href="#">University / Lab</a></li>
+                        <li><a href="#">Google Scholar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>© 2026 Sogo Nakao</p>
+    </footer>
 </div>
-</main>
-<aside>
-<div id="middle-inner">
-<div class="side-title">menu</div>
-<div class="side">
-<ul>
-<li>記事ページへのリンク</li>
-<li>記事ページへのリンク</li>
-</ul>
-</div>
-</div>
-</aside>
-</div>
-<footer>© 2010 あなたのホームページ</footer>
-</div></body>
+
+<script>
+    // モード切り替えスクリプト
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        document.body.classList.toggle('light-mode');
+    }
+
+    // 言語切り替えスクリプト
+    function toggleLanguage() {
+        const jaElements = document.querySelectorAll('.lang-ja');
+        const enElements = document.querySelectorAll('.lang-en');
+        const isJa = jaElements[0].style.display !== 'none';
+
+        jaElements.forEach(el => el.style.display = isJa ? 'none' : 'block');
+        enElements.forEach(el => el.style.display = isJa ? 'block' : 'none');
+    }
+</script>
+</body>
 </html>
