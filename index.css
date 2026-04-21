@@ -45,3 +45,71 @@ aside { flex: 1; padding: 20px; background: var(--header-bg); border-left: 1px s
     #content-wrapper { flex-direction: column; }
     .profile-flex { flex-direction: column; }
 }
+
+/* プロフィール全体のレイアウト */
+.profile-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.profile-photo {
+    flex: 1;
+    max-width: 200px;
+}
+
+.profile-img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.profile-details {
+    flex: 2;
+}
+
+/* 松藤さんのような個別のボックス設定 */
+.info-box {
+    display: flex;
+    border: 1px solid var(--border-color);
+    margin-bottom: 10px; /* ボックス同士の隙間 */
+    border-radius: 4px;
+    overflow: hidden; /* 角丸からはみ出さないように */
+}
+
+/* 左側のラベル部分（グレーの背景） */
+.info-label {
+    background-color: var(--header-bg);
+    padding: 10px;
+    width: 120px;
+    font-weight: bold;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+}
+
+/* 右側の内容部分 */
+.info-content {
+    padding: 10px;
+    background-color: var(--bg-color);
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+/* スマホ表示の時は縦に並べる */
+@media (max-width: 600px) {
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .info-box {
+        flex-direction: column;
+    }
+    .info-label {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+}
