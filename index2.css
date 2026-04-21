@@ -1,0 +1,202 @@
+/* Webフォントの読み込み（RobotoとNoto Sans JP） */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+/* 基本変数（ライトモード：少し温かみのある背景色に） */
+:root {
+    --bg-color: #f7f9fa;
+    --text-color: #333333;
+    --header-bg: #ffffff;
+    --accent-color: #005bb5;
+    --border-color: #e1e4e8;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ダークモード変数（深みのあるダークグレーに） */
+.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --header-bg: #1e1e1e;
+    --accent-color: #66b2ff;
+    --border-color: #333333;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+    margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6;
+}
+
+/* メインコンテナをカード風に */
+#outer { 
+    max-width: 1000px; 
+    margin: 40px auto; 
+    background-color: var(--header-bg);
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+/* ヘッダー周り */
+#header-container {
+    padding: 30px 40px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#head-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#head-inner h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* 切り替えボタンをおしゃれに */
+.controls button {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+    transition: 0.2s;
+}
+
+.controls button:hover {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border-color: var(--accent-color);
+}
+
+/* ナビゲーション（タブ） */
+#main-nav { 
+    background: var(--header-bg); 
+    border-bottom: 2px solid var(--border-color); 
+}
+
+#main-nav ul { 
+    display: flex; 
+    list-style: none; 
+    padding: 0 20px; 
+    margin: 0; 
+}
+
+#main-nav li a { 
+    padding: 15px 25px; 
+    text-decoration: none; 
+    color: var(--text-color); 
+    display: block; 
+    font-weight: bold;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s;
+}
+
+#main-nav li a:hover, #main-nav li a.active { 
+    color: var(--accent-color);
+    border-bottom: 3px solid var(--accent-color);
+}
+
+/* コンテンツ配置 */
+#content-wrapper { display: flex; }
+main { flex: 3; padding: 40px; }
+aside { flex: 1; padding: 40px 20px; background: var(--bg-color); border-left: 1px solid var(--border-color); }
+
+h2 {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* プロフィール全体のレイアウト */
+.profile-container {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.profile-photo {
+    flex: 1;
+    max-width: 220px;
+}
+
+/* 写真を丸みのある影付きに */
+.profile-img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%; /* 丸くしたい場合は50%、四角のままなら12pxなどに変更 */
+    box-shadow: var(--box-shadow);
+    object-fit: cover;
+}
+
+.profile-details {
+    flex: 2;
+}
+
+/* 箇条書きボックスのデザイン（松藤さん風の進化版） */
+.info-box {
+    display: flex;
+    border: 1px solid var(--border-color);
+    margin-bottom: 12px;
+    border-radius: 8px;
+    background-color: var(--header-bg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    overflow: hidden;
+}
+
+.info-label {
+    background-color: rgba(0, 0, 0, 0.03);
+    padding: 12px 15px;
+    width: 130px;
+    font-weight: 700;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+}
+
+.dark-mode .info-label {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.info-content {
+    padding: 12px 15px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 40px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--bg-color);
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* スマホ表示の調整 */
+@media (max-width: 768px) {
+    #outer { margin: 0; border-radius: 0; }
+    #content-wrapper { flex-direction: column; }
+    .profile-container { flex-direction: column; align-items: center; }
+    #head-inner { flex-direction: column; gap: 15px; text-align: center; }
+    #main-nav ul { flex-wrap: wrap; justify-content: center; }
+    .info-box { flex-direction: column; }
+    .info-label { width: 100%; border-right: none; border-bottom: 1px solid var(--border-color); }
+}
