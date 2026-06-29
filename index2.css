@@ -32,7 +32,8 @@ body {
 
 /* メインコンテナをカード風に */
 #outer { 
-    max-width: 100%; 
+    width: 100%;
+    max-width: 1200px; 
     margin: 40px auto; 
     background-color: var(--header-bg);
     border-radius: 12px;
