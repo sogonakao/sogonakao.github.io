@@ -31,10 +31,9 @@ body {
 }
 
 /* メインコンテナをカード風に */
-#outer { 
-    width: 100%;
-    max-width: 1200px; 
-    margin: 40px auto; 
+#outer {
+    max-width: 100%; 
+    margin: 0; 
     background-color: var(--header-bg);
     border-radius: 12px;
     box-shadow: var(--box-shadow);
