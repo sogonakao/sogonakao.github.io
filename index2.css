@@ -142,7 +142,6 @@ h2 {
     flex: 2;
 }
 
-/* 箇条書きボックスのデザイン（松藤さん風の進化版） */
 .info-box {
     display: flex;
     border: 1px solid var(--border-color);
