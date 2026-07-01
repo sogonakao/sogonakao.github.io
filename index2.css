@@ -201,50 +201,26 @@ footer {
 }
 
 /* ====================
-   趣味スライダー（自動横スクロール）
+   シンプルな写真ギャラリー
 ==================== */
-.slider-container {
-    width: 100%;
-    overflow: hidden; /* はみ出した部分を隠す */
-    margin: 15px 0 30px;
-    border-radius: 8px;
-}
-
-.slider-track {
+.simple-gallery {
     display: flex;
-    flex-wrap: nowrap; /* ★絶対に縦に折り返さないように強制 */
-    width: max-content;
-    animation: marquee 20s linear infinite;
+    flex-wrap: wrap; /* 画面が狭い場合は自動で下に折り返す */
+    gap: 15px; /* 写真同士の隙間 */
+    margin-top: 15px;
 }
 
-.slider-container:hover .slider-track {
-    animation-play-state: paused;
+.simple-gallery img {
+    height: 150px !important; /* ★ここで高さを文字欄くらい（150px）に小さく固定 */
+    width: auto !important;   /* ★横幅は元の写真の比率を維持 */
+    max-width: 100% !important; /* 巨大化防止 */
+    border-radius: 8px; /* 角を少し丸く */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
 }
 
-.slide-set {
-    display: flex;
-    flex-wrap: nowrap; /* ★ここも絶対に縦に折り返さないように強制 */
-    gap: 15px;
-    padding-right: 15px;
-}
-
-.slide-set img {
-    height: 150px !important; /* ★高さを150px（丁度いいサイズ）に強制固定 */
-    width: auto !important;   /* ★横幅は高さに合わせて自動調整させる */
-    max-width: none !important; /* ★他の巨大化する設定を完全に打ち消す */
-    display: block;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-@keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-/* スマホ表示の調整 */
+/* スマホ表示の時はさらに少し小さくする */
 @media (max-width: 768px) {
-    .slide-set img {
-        height: 120px !important; /* スマホ画面ではさらに少し小さくする */
+    .simple-gallery img {
+        height: 100px !important;
     }
 }
