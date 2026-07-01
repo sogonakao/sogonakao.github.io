@@ -212,7 +212,7 @@ footer {
 
 .simple-gallery img {
     height: 150px !important; /* ★ここで高さを文字欄くらい（150px）に小さく固定 */
-    width: auto !important;   /* ★横幅は元の写真の比率を維持 */
+    /*width: auto !important;   /* ★横幅は元の写真の比率を維持 */
     max-width: 100% !important; /* 巨大化防止 */
     border-radius: 8px; /* 角を少し丸く */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
