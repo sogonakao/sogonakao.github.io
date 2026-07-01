@@ -205,44 +205,46 @@ footer {
 ==================== */
 .slider-container {
     width: 100%;
-    overflow: hidden; /* 画面外にはみ出した部分を隠す */
-    margin: 15px 0 40px;
+    overflow: hidden; /* はみ出した部分を隠す */
+    margin: 15px 0 30px;
     border-radius: 8px;
 }
 
 .slider-track {
     display: flex;
-    width: max-content; /* 中身の画像サイズに合わせて幅を広げる */
-    animation: marquee 20s linear infinite; /* 20秒かけて一定の速度でスクロールし、無限ループ */
+    flex-wrap: nowrap; /* ★絶対に縦に折り返さないように強制 */
+    width: max-content;
+    animation: marquee 20s linear infinite;
 }
 
-/* マウスを写真に乗せるとスクロールが一時停止する（不要なら削除OK） */
 .slider-container:hover .slider-track {
     animation-play-state: paused;
 }
 
 .slide-set {
     display: flex;
-    gap: 15px; /* 写真同士の隙間 */
-    padding-right: 15px; /* 1セット目と2セット目の間の隙間 */
+    flex-wrap: nowrap; /* ★ここも絶対に縦に折り返さないように強制 */
+    gap: 15px;
+    padding-right: 15px;
 }
 
 .slide-set img {
-    height: 220px; /* ★ここで高さを揃える（切り抜きなし） */
-    width: auto;   /* ★幅は元の縦横比を維持 */
+    height: 150px !important; /* ★高さを150px（丁度いいサイズ）に強制固定 */
+    width: auto !important;   /* ★横幅は高さに合わせて自動調整させる */
+    max-width: none !important; /* ★他の巨大化する設定を完全に打ち消す */
+    display: block;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* 左へ移動するアニメーション */
 @keyframes marquee {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* 全体の半分の位置（1セット目の終わり）まで来たら最初に戻る */
+    100% { transform: translateX(-50%); }
 }
 
 /* スマホ表示の調整 */
 @media (max-width: 768px) {
     .slide-set img {
-        height: 150px; /* スマホ画面では高さを少し小さくする */
+        height: 120px !important; /* スマホ画面ではさらに少し小さくする */
     }
 }
