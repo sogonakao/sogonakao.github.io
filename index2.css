@@ -199,3 +199,50 @@ footer {
     .info-box { flex-direction: column; }
     .info-label { width: 100%; border-right: none; border-bottom: 1px solid var(--border-color); }
 }
+
+/* ====================
+   趣味スライダー（自動横スクロール）
+==================== */
+.slider-container {
+    width: 100%;
+    overflow: hidden; /* 画面外にはみ出した部分を隠す */
+    margin: 15px 0 40px;
+    border-radius: 8px;
+}
+
+.slider-track {
+    display: flex;
+    width: max-content; /* 中身の画像サイズに合わせて幅を広げる */
+    animation: marquee 20s linear infinite; /* 20秒かけて一定の速度でスクロールし、無限ループ */
+}
+
+/* マウスを写真に乗せるとスクロールが一時停止する（不要なら削除OK） */
+.slider-container:hover .slider-track {
+    animation-play-state: paused;
+}
+
+.slide-set {
+    display: flex;
+    gap: 15px; /* 写真同士の隙間 */
+    padding-right: 15px; /* 1セット目と2セット目の間の隙間 */
+}
+
+.slide-set img {
+    height: 220px; /* ★ここで高さを揃える（切り抜きなし） */
+    width: auto;   /* ★幅は元の縦横比を維持 */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 左へ移動するアニメーション */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* 全体の半分の位置（1セット目の終わり）まで来たら最初に戻る */
+}
+
+/* スマホ表示の調整 */
+@media (max-width: 768px) {
+    .slide-set img {
+        height: 150px; /* スマホ画面では高さを少し小さくする */
+    }
+}
